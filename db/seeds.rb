@@ -15,3 +15,22 @@ Movie.create(title: "Titanic", overview: "101-year-old Rose DeWitt Bukater tells
 Movie.create(title: "Ocean's Eight", overview: "Debbie Ocean, a criminal mastermind, gathers a crew of female thieves to pull off the heist of the century.", poster_url: "https://image.tmdb.org/t/p/original/MvYpKlpFukTivnlBhizGbkAe3v.jpg", rating: 7.0)
 
 puts "Finished! Created #{Movie.count} movies!."
+
+# require "faker"
+
+
+# CATEGORIES = ["Science Fiction", "Horror", "Thriller", "Action", "Fantasy"]
+
+# puts "Creating movie lists..."
+
+# 15.times do
+#   Movie.create!(
+#     title: Faker::Movie.title,
+#     overview: Faker::Overiew.full_address,
+#     poster_url: Faker::PhoneNumber.phone_number,
+#     rating: Faker::Rating
+#     category: CATEGORIES.sample
+#   )
+# end
+
+# puts "Finished! Created #{Movie.count} movie lists."

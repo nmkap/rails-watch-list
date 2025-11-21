@@ -1,0 +1,25 @@
+<h1><%= @list.name %></h1>
+<p>You have <%= pluralize(@list.movies.count, "movie") %></p>
+<%= link_to "Add a movie!", new_list_bookmark_path(@list) %>
+
+<h1>Your selected Movie List</h1>
+
+<h2><%= @list.name%> </h2>
+
+
+<ul>
+  <% @list.bookmarks.each do |bookmark| %>
+    <div class="movie-card">
+      <%= image_tag bookmark.movie.poster_url, height: 300 %>
+      <div class="card-movie-overview">
+        <h2><%= bookmark.movie.title %></h2>
+        <h4 class="card-movie-rating">Rating: <%= bookmark.movie.rating %></h4>
+        <p><%= bookmark.movie.overview %></p>
+        <p><%= bookmark.comment %></p>
+        <%= link_to bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{bookmark.movie.title}?" } do %>
+        <i class="fa-solid fa-trash"></i>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</ul>

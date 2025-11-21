@@ -1,0 +1,21 @@
+<h1>Select a movie you'd like to add to this list:</h1>
+
+
+<%# Here i will use bootstrap to create a drop down menu, so the user can see all the movies
+in my seed file and be able to select one to then add it to their movie list and add a comment for that movie %>
+
+<%# The bookmark is nested inside the list, so we need to list both - with the item (list) first%>
+<%= simple_form_for([@list, @bookmark]) do |f| %>
+
+  <% if @bookmark.errors.any? %>
+    <%= @bookmark.errors.messages %>
+    <%= @bookmark.attributes %>
+  <% end %>
+
+  <%= f.input :movie_id, collection: @movies.collect { |m| [m.title, m.id] }, prompt: "Select a Movie" %>
+  <%= f.input :comment %>
+  <%= f.submit "Add Movie to List" %>
+
+<% end %>
+
+<%= link_to "Back to Movie List", list_path(@list) %>
